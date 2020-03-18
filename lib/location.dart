@@ -31,8 +31,11 @@ class LocationData {
   /// timestamp of the LocationData
   final double time;
 
+  /// If the location provider mocked
+  final double mocked;
+
   LocationData._(this.latitude, this.longitude, this.accuracy, this.altitude,
-      this.speed, this.speedAccuracy, this.heading, this.time);
+      this.speed, this.speedAccuracy, this.heading, this.time, this.mocked);
 
   factory LocationData.fromMap(Map<String, double> dataMap) {
     return LocationData._(
@@ -44,6 +47,7 @@ class LocationData {
       dataMap['speed_accuracy'],
       dataMap['heading'],
       dataMap['time'],
+      dataMap['mocked'],
     );
   }
 

@@ -222,6 +222,11 @@ class FlutterLocation
                 }
                 loc.put("heading", (double) location.getBearing());
                 loc.put("time", (double) location.getTime());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                    loc.put("mocked", location.isFromMockProvider() ? 1.0:0.0);
+                }else{
+                    loc.put("mocked", 0.0);
+                }
 
                 if (getLocationResult != null) {
                     getLocationResult.success(loc);
